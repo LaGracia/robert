@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="author" content="Kim Wilkens">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Robert's Birthday Card</title>
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
+
+    <!--
+    Change the predictions
+    *****************************************************
+    -->
+
+    <script>
+
+      var answers = [
+        "Jakarta!",
+        "Singapore!",
+        "South Korea!",
+        "?!",
+        "?!",
+        "Dubai!",
+        "Jordan!",
+        "Switzerland!",
+        "Houston!"
+      ];
+
+      function fortune() {
+        num = Math.round( (answers.length - 1) * Math.random());
+        return answers[num];
+      }
+
+    </script>
+
+
+
+    <!--
+    Color, font size, transform
+*****************************************************
+-->
+
+    <style>
+
+      body {
+        padding: 0 20px;
+        color: black;
+        background-color: #6a4c93;
+        text-align: center;
+        margin: 0;
+        height: 100vh;
+      }
+
+      .wrapper {
+        position: relative;
+        z-index: 1;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        display: block;
+        margin: 60px auto 40px auto;
+      }
+
+      .card {
+        width: 750px;
+        max-width: 85%;
+        margin: 0 auto;
+        border: 8px solid #1982c4;
+        box-sizing: border-box;
+        border-radius: 4px;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transition: all 1s linear 0s;
+        -moz-transition: all 1s linear 0s;
+        -o-transition: all 1s linear 0s;
+        -ms-transition: all 1s linear 0s;
+        transition: all 1s linear 0s;
+        -webkit-box-shadow: 0px 0px 10px #aaa;
+        box-shadow: 0px 0px 10px #aaa;
+      }
+
+      .wrapper:hover .card {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+      }
+
+      .face {
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      /* Change the Image */
+
+      .front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #aaa;
+        background-image: url('barefoot-lane-robert-2.jpg');
+        background-size: cover;
+        background-position: center;
+        -webkit-transform: translateZ(0);
+      }
+
+      .back {
+        background-color: white;
+        color: #333;
+        font-family: 'Kalam', monospace;
+        font-size: 4vmin;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+      }
+
+      h1 {
+        font-family: 'Bangers', monospace;;
+        color: #ff3562;
+        text-shadow: 3px 3px 6px black;
+        font-size: 9vmin;
+        letter-spacing: 3px;
+        line-height: 90%;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+      }
+
+      p {
+        margin: 0 0 1em 0;
+      }
+
+      .message {
+        text-align: left;
+        width: 50%;
+        padding: 30px;
+        line-height: 150%;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .message:after {
+        content: "";
+        position: absolute;
+        border-right: solid 2px black;
+        height: 60%;
+        top: 15%;
+        right: 0;
+      }
+
+      .address {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        padding: 100px 5% 0 5%;
+        width: 50%;
+        line-height: 150%;
+        box-sizing: border-box;
+      }
+
+      .address:after {
+        content: "";
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        border: solid 2px black;
+        right: 20px;
+        top: 20px;
+      }
+
+      #myButton {
+        background-color: #ffc857;
+        font-family: 'Lilita One', monospace;
+        font-size: 3vmin;
+        color: #000;
+        cursor: pointer;
+      }
+
+      #myAnswer {
+        background-color: transparent;
+        border: 0px solid white;
+        font-family: 'Kalam', monospace;
+        font-size: 6vmin;
+        color:#000;
+        text-align: right !important;
+      }
+
+      #predictions{
+        font-size: 4vmin;
+        text-align: left;
+        margin-bottom: 0;
+      }
+
+      #credits {
+        font-family: monospace;
+        font-size: 1vmin;
+        color: black;
+        text-align: left;
+      }
+
+      a {
+        font-family: monospace;
+        font-size: 4vmin;
+        color: black;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <!-- The 'card' <div> wraps around both the front and back sides. -->
+      <div class="card">
+
+        <!--
+Message on the front of the card
+****************************************************
+-->
+
+        <div class="front face">
+          <h1>Happy Birthday, Robert!</h1>
+        </div>
+
+        <!-- The back of the card -  you only see it when the card flips -->
+        <div class="back face">
+
+          <!--
+Note on the back of the card
+*****************************************************
+-->
+
+          <div class="message">
+            <p>Dear Robert,</p>
+            <p>The look says it all. Stay young and keep smiling!</p>
+            <p>Cheers,<br />Lane</p>
+          </div>
+
+          <!-- School-year predictions -->
+          <div class="address">
+            <form>
+              <p id="predictions">
+                Just think - this time next year you could be in...<br>
+              </p>
+              <p>
+                <input type="button" id="myButton" name="Answer" value="Click here." onClick="document.querySelector('#myAnswer').innerHTML = fortune();">
+              </p>
+              <p>
+                <span id="myAnswer"></span>
+              </p>
+            </form>
+          </div>
+
+        </div> <!-- /end of back -->
+
+      </div> <!-- /end of card -->
+
+    </div> <!-- /end of wrapper -->
+
+  </body>
+
+</html>
